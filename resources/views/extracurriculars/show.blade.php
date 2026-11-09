@@ -47,18 +47,18 @@
 <section class="section" style="background:#FFFDF5;">
     <div class="container">
 
-        <article style="
-            max-width:1000px;
-            margin:0 auto;
-            background:white;
-            border-radius:28px;
-            padding:40px;
-            border:1px solid #eee8d9;
-            box-shadow:0 15px 40px rgba(37,35,51,.07);
-            display:grid;
-            grid-template-columns:1fr 380px;
-            gap:40px;
-            align-items:start;
+        <article class="ekskul-detail-card" style="
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 28px;
+            padding: 40px;
+            border: 1px solid #eee8d9;
+            box-shadow: 0 15px 40px rgba(37,35,51,.07);
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 40px;
+            align-items: start;
         ">
 
             {{-- INFORMASI --}}
@@ -96,11 +96,11 @@
                 </p>
 
                 {{-- INFO --}}
-                <div style="
-                    display:grid;
-                    grid-template-columns:1fr 1fr;
-                    gap:15px;
-                    margin-bottom:30px;
+                <div class="ekskul-detail-info" style="
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 15px;
+                    margin-bottom: 30px;
                 ">
 
                     <div style="
@@ -158,10 +158,10 @@
                 </div>
 
                 {{-- ACTION --}}
-                <div style="
-                    display:flex;
-                    gap:12px;
-                    flex-wrap:wrap;
+                <div class="ekskul-detail-actions" style="
+                    display: flex;
+                    gap: 12px;
+                    flex-wrap: wrap;
                 ">
                     <a href="/extracurriculars/{{ $extracurricular->id }}/register" class="btn">
                         Daftar Ekstrakurikuler →
@@ -179,16 +179,16 @@
 
             {{-- FOTO --}}
             @if($extracurricular->image)
-            <div style="
-                    width:100%;
-                    min-height:420px;
-                    background:#f5f2ea;
-                    border-radius:22px;
-                    overflow:hidden;
-                    display:flex;
-                    align-items:center;
-                    justify-content:center;
-                ">
+            <div class="ekskul-detail-photo" style="
+                width: 100%;
+                min-height: 420px;
+                background: #f5f2ea;
+                border-radius: 22px;
+                overflow: hidden;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            ">
                 <img src="{{ asset('storage/' . $extracurricular->image) }}" alt="{{ $extracurricular->name }}" style="
                             width:100%;
                             height:100%;
@@ -198,16 +198,16 @@
                         ">
             </div>
             @else
-            <div style="
-                    width:100%;
-                    min-height:420px;
-                    background:#F9C74F;
-                    border-radius:22px;
-                    display:flex;
-                    align-items:center;
-                    justify-content:center;
-                    font-size:80px;
-                ">
+            <div class="ekskul-detail-photo" style="
+                width: 100%;
+                min-height: 420px;
+                background: #F9C74F;
+                border-radius: 22px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 80px;
+            ">
                 ★
             </div>
             @endif

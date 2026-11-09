@@ -275,6 +275,31 @@
             .activity-card h3 {
                 font-size: 18px !important;
             }
+
+            /* DETAIL EKSTRAKURIKULER MOBILE */
+            .ekskul-detail-card {
+                grid-template-columns: 1fr !important;
+                padding: 24px !important;
+                gap: 28px !important;
+            }
+
+            .ekskul-detail-info {
+                grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+            }
+
+            .ekskul-detail-actions {
+                flex-direction: column;
+            }
+
+            .ekskul-detail-actions a {
+                width: 100%;
+                box-sizing: border-box;
+                text-align: center;
+            }
+
+            .ekskul-detail-photo {
+                min-height: 260px !important;
+            }
         }
 
         .ekskul-grid {
