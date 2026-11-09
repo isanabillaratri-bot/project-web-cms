@@ -233,7 +233,7 @@
         .ekskul-card {
             width: 100%;
             min-width: 0;
-            min-height: 380px;
+            min-height: 320px;
             color: #252333;
             border-radius: 28px;
             padding: 30px;

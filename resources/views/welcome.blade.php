@@ -778,14 +778,6 @@
                 </div>
                 @endif
 
-                <span style="
-                        font-size:12px;
-                        font-weight:800;
-                        letter-spacing:1px;
-                    ">
-                    EKSTRAKURIKULER
-                </span>
-
                 <h3 style="
                         font-size:28px;
                         line-height:1.1;
@@ -793,13 +785,6 @@
                     ">
                     {{ $extracurricular->name }}
                 </h3>
-
-                <p style="
-                        color:#4f4a58;
-                        font-size:14px;
-                    ">
-                    {{ \Illuminate\Support\Str::limit($extracurricular->description, 100) }}
-                </p>
 
                 <div>
                     <p style="
