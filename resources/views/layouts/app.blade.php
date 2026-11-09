@@ -219,10 +219,14 @@
             }
 
             .ekskul-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: minmax(0, 1fr) !important;
+                width: 100%;
             }
 
             .ekskul-card {
+                width: 100%;
+                min-width: 0;
+                box-sizing: border-box;
                 min-height: auto;
             }
 
