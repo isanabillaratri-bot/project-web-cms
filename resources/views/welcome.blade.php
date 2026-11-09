@@ -744,7 +744,7 @@
 
             @foreach($extracurriculars->take(3) as $extracurricular)
 
-            < class="ekskul-card ekskul-card-{{ $loop->index }}">
+            <div class="ekskul-card ekskul-card-{{ $loop->index }}">
 
                 @if($extracurricular->image)
                 <div style="
@@ -830,11 +830,11 @@
                     </a>
                 </div>
 
+            </div>
+
+            @endforeach
+
         </div>
-
-        @endforeach
-
-    </div>
 
     </div>
 </section>
