@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-    <title>@yield('title', 'Website Sekolah')</title>
+    <title>@yield('title', 'SMA Swasta Cakrawala Muda Sembada')</title>
 
     <style>
         * {
@@ -325,8 +325,8 @@
         <div class="container nav-inner">
 
             <a href="/" class="brand">
-                <span class="brand-logo">S</span>
-                <span>Sekolah Kita</span>
+                <span class="brand-logo">C</span>
+                <span>Cakrawala Muda Sembada</span>
             </a>
 
             <div class="nav-links">
@@ -359,11 +359,12 @@
         <div class="container footer-inner">
 
             <div>
-                <h3>Sekolah Kita</h3>
+                <h3>Cakrawala Muda Sembada</h3>
 
                 <p>
-                    Website resmi sekolah sebagai pusat informasi,
-                    kegiatan, berita, dan layanan pendaftaran siswa.
+                    Website resmi SMA Swasta Cakrawala Muda Sembada
+                    sebagai pusat informasi, kegiatan, berita, dan
+                    layanan pendaftaran siswa.
                 </p>
             </div>
 
