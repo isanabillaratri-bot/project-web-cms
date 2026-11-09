@@ -120,12 +120,12 @@
 <section class="section" style="background:#FFFDF5;">
     <div class="container">
 
-        <div style="
-            display:grid;
-            grid-template-columns:1fr 1fr;
-            gap:70px;
-            align-items:center;
-        ">
+        <div class="about-layout" style="
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:70px;
+        align-items:center;
+    ">
 
             <div>
 
@@ -173,7 +173,7 @@
 
             </div>
 
-            <div style="
+            <div class="about-illustration" style="
                 position:relative;
                 min-height:390px;
             ">
@@ -277,7 +277,7 @@
 ">
     <div class="container">
 
-        <div style="
+        <div class="stats-grid" style="
             display:grid;
             grid-template-columns:repeat(4,1fr);
             gap:18px;
@@ -600,7 +600,7 @@
 
             @foreach($activities->take(3) as $activity)
 
-            <div style="
+            <div class="activity-card" style="
                 background:#FFFDF5;
                 border-radius:24px;
                 padding:24px;

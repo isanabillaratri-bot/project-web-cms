@@ -218,8 +218,58 @@
                 grid-template-columns: 1fr;
             }
 
+            .ekskul-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .ekskul-card {
+                min-height: auto;
+            }
+
             .footer-inner {
                 grid-template-columns: 1fr;
+            }
+
+            .about-layout {
+                grid-template-columns: 1fr !important;
+                gap: 30px !important;
+            }
+
+            .about-illustration {
+                width: 100%;
+                max-width: 420px;
+                min-height: 340px !important;
+                margin: 0 auto;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+                gap: 12px !important;
+            }
+
+            .stats-grid>div {
+                min-width: 0;
+                padding: 20px !important;
+                min-height: 150px !important;
+            }
+
+            .stats-grid h2 {
+                font-size: 36px !important;
+            }
+
+            .activity-card {
+                grid-template-columns: 70px minmax(0, 1fr) !important;
+                gap: 15px !important;
+                padding: 16px !important;
+            }
+
+            .activity-card>a {
+                grid-column: 2;
+                justify-self: start;
+            }
+
+            .activity-card h3 {
+                font-size: 18px !important;
             }
         }
 
