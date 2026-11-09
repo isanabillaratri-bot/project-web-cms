@@ -744,7 +744,7 @@
 
             @foreach($extracurriculars->take(3) as $extracurricular)
 
-            <div class="ekskul-card ekskul-card-{{ $loop->index }}">
+            < class="ekskul-card ekskul-card-{{ $loop->index }}">
 
                 @if($extracurricular->image)
                 <div style="
@@ -800,25 +800,24 @@
                     ">
                     {{ \Illuminate\Support\Str::limit($extracurricular->description, 100) }}
                 </p>
-            </div>
 
-            <div>
-                <p style="
+                <div>
+                    <p style="
                         font-size:13px;
                         font-weight:700;
                         margin-bottom:6px;
                     ">
-                    👤 {{ $extracurricular->coach }}
-                </p>
+                        👤 {{ $extracurricular->coach }}
+                    </p>
 
-                <p style="
+                    <p style="
                         font-size:13px;
                         margin-bottom:18px;
                     ">
-                    🕒 {{ $extracurricular->schedule }}
-                </p>
+                        🕒 {{ $extracurricular->schedule }}
+                    </p>
 
-                <a href="/extracurriculars/{{ $extracurricular->id }}" style="
+                    <a href="/extracurriculars/{{ $extracurricular->id }}" style="
                         display:inline-block;
                         background:#252333;
                         color:white;
@@ -827,9 +826,9 @@
                         font-size:13px;
                         font-weight:800;
                     ">
-                    Lihat Ekstrakurikuler →
-                </a>
-            </div>
+                        Lihat Ekstrakurikuler →
+                    </a>
+                </div>
 
         </div>
 
