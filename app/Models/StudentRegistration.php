@@ -16,7 +16,10 @@ class StudentRegistration extends Model
         'parent_name',
         'parent_phone',
         'status',
+        'admission_path',
+        'is_archived',
     ];
+
     public function documents()
     {
         return $this->hasMany(StudentDocument::class);
