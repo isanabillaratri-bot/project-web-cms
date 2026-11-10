@@ -407,7 +407,7 @@
 
                 <p>Surakarta, Jawa Tengah</p>
                 <p>info@sekolah.sch.id</p>
-                <p>0812-3456-7890</p>
+                <p>0895-2100-6912</p>
             </div>
 
         </div>
