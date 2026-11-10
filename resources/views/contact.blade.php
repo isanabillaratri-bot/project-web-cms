@@ -181,7 +181,7 @@
 
             </div>
 
-            <a href="https://wa.me/6288210522337" target="_blank" rel="noopener noreferrer" class="btn" style="
+            <a href="https://wa.me/6289521006912" target="_blank" rel="noopener noreferrer" class="btn" style="
                    background:#F9C74F;
                    color:#252333 !important;
                    padding:15px 23px;
