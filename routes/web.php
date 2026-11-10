@@ -58,12 +58,14 @@ Route::get('/cek-status-ekskul', function (\Illuminate\Http\Request $request) {
 
 Route::get('/pendaftaran-siswa', [StudentRegistrationController::class, 'create']);
 
-Route::post('/pendaftaran-siswa', [StudentRegistrationController::class, 'store']);
+Route::get('/pendaftaran-siswa/prestasi', [StudentRegistrationController::class, 'prestasi']);
+Route::post('/pendaftaran-siswa/prestasi', [StudentRegistrationController::class, 'storePrestasi']);
+
+Route::get('/pendaftaran-siswa/tes', [StudentRegistrationController::class, 'tes']);
+Route::post('/pendaftaran-siswa/tes', [StudentRegistrationController::class, 'storeTes']);
 
 Route::get('/pendaftaran-siswa/success/{id}', function ($id) {
-
     $registration = \App\Models\StudentRegistration::findOrFail($id);
-
     return view('student-registrations.success', compact('registration'));
 });
 
@@ -79,7 +81,7 @@ Route::get('/cek-status-pendaftaran', function (\Illuminate\Http\Request $reques
         $registration = \App\Models\StudentRegistration::where(
             'nik',
             $request->nik
-        )->first();
+        )->latest()->first();
     }
 
     return view('student-registrations.status', compact('registration'));
@@ -125,6 +127,21 @@ Route::middleware('auth')->group(function () {
     Route::resource('/admin/extracurricular-registrations', AdminExtracurricularRegistrationController::class)
         ->only(['index', 'show', 'update', 'destroy']);
 
-    Route::resource('/admin/student-registrations', AdminStudentRegistrationController::class)
-        ->only(['index', 'show', 'update', 'destroy']);
+    // Menu utama pendaftaran
+    Route::get('/admin/student-registrations', [AdminStudentRegistrationController::class, 'index']);
+
+    // Daftar berdasarkan jalur
+    Route::get('/admin/student-registrations/prestasi', [AdminStudentRegistrationController::class, 'prestasi']);
+    Route::get('/admin/student-registrations/tes', [AdminStudentRegistrationController::class, 'tes']);
+
+    // Arsip pendaftar
+    Route::get('/admin/student-registrations/arsip', [AdminStudentRegistrationController::class, 'arsip']);
+
+    // Detail pendaftar arsip (harus sebelum route detail umum)
+    Route::get('/admin/student-registrations/arsip/{studentRegistration}', [AdminStudentRegistrationController::class, 'showArsip']);
+
+    // Detail dan pembaruan pendaftar aktif
+    Route::get('/admin/student-registrations/{studentRegistration}', [AdminStudentRegistrationController::class, 'show']);
+    Route::put('/admin/student-registrations/{studentRegistration}', [AdminStudentRegistrationController::class, 'update']);
+
 });

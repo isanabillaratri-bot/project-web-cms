@@ -3,12 +3,14 @@
 @section('title', 'Pendaftaran Siswa Baru')
 
 @section('content')
+
 <section class="section">
     <div class="container">
 
-        <div style="margin-bottom:30px;">
+        <div style="margin-bottom:35px;">
             <p style="color:#1f6f5b; font-weight:bold;">ADMIN PANEL</p>
             <h1>Pendaftaran Siswa Baru</h1>
+            <p>Kelola data pendaftaran siswa berdasarkan jalur masuk.</p>
         </div>
 
         @if(session('success'))
@@ -17,66 +19,44 @@
         </div>
         @endif
 
-        @if($registrations->count())
-
         <div class="grid">
 
-            @foreach($registrations as $registration)
             <div class="card">
-
-                <p style="color:#1f6f5b; font-weight:bold;">
-                    {{ strtoupper($registration->status) }}
-                </p>
-
-                <h3>{{ $registration->name }}</h3>
-
+                <h3>Pendaftar Prestasi</h3>
                 <p>
-                    <strong>NIK:</strong>
-                    {{ $registration->nik }}
+                    Lihat dan verifikasi data siswa yang mendaftar
+                    melalui Jalur Prestasi.
                 </p>
-
-                <p>
-                    <strong>Asal Sekolah:</strong>
-                    {{ $registration->school_origin }}
-                </p>
-
-                <p>
-                    <strong>Nama Orang Tua:</strong>
-                    {{ $registration->parent_name }}
-                </p>
-
-                <p style="margin-bottom:20px;">
-                    <strong>No. HP Orang Tua:</strong>
-                    {{ $registration->parent_phone }}
-                </p>
-
-                <a href="/admin/student-registrations/{{ $registration->id }}" class="btn">
-                    Lihat Detail
+                <a href="/admin/student-registrations/prestasi" class="btn">
+                    Lihat Pendaftar →
                 </a>
-
-                <form action="/admin/student-registrations/{{ $registration->id }}" method="POST" style="display:inline;">
-                    @csrf
-                    @method('DELETE')
-
-                    <button type="submit" class="btn" onclick="return confirm('Hapus pendaftaran ini?')">
-                        Hapus
-                    </button>
-                </form>
-
             </div>
-            @endforeach
+
+            <div class="card">
+                <h3>Pendaftar Tes</h3>
+                <p>
+                    Lihat dan verifikasi data siswa yang mendaftar
+                    melalui Jalur Tes.
+                </p>
+                <a href="/admin/student-registrations/tes" class="btn">
+                    Lihat Pendaftar →
+                </a>
+            </div>
+
+            <div class="card">
+                <h3>Arsip Pendaftar</h3>
+                <p>
+                    Lihat data pendaftar yang tidak lolos
+                    dan telah dipindahkan ke arsip.
+                </p>
+                <a href="/admin/student-registrations/arsip" class="btn">
+                    Lihat Arsip →
+                </a>
+            </div>
 
         </div>
-
-        @else
-
-        <div class="card" style="text-align:center;">
-            <h3>Belum ada pendaftaran</h3>
-            <p>Pendaftaran siswa yang masuk akan muncul di sini.</p>
-        </div>
-
-        @endif
 
     </div>
 </section>
+
 @endsection
