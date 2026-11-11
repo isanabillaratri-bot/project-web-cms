@@ -28,6 +28,17 @@
         white-space: pre-line;
     }
 
+    .activity-description a {
+        color: #2563EB;
+        text-decoration: underline;
+        font-weight: 600;
+        overflow-wrap: anywhere;
+    }
+
+    .activity-description a:hover {
+        color: #1D4ED8;
+    }
+
     .activity-poster {
         width: 100%;
         min-height: 300px;
@@ -117,70 +128,75 @@
                     TENTANG KEGIATAN
                 </p>
 
-                <div class="activity-description">{{ $activity->description }}</div>
+                @php
+                $description = e($activity->description);
 
-                {{-- INFO --}}
-                <div style="
+                $description = preg_replace_callback(
+                '~https?://[^\s<]+~i', function ($matches) { $url=rtrim($matches[0], '.,;:!?)]}' ); $ending=substr($matches[0], strlen($url)); return '<a href="' . $url . '" target="_blank" rel="noopener noreferrer">' . $url . '</a>' . $ending; }, $description ); @endphp <div class="activity-description">{!! $description !!}
+            </div>
+
+            {{-- INFO --}}
+            <div style="
                     display:grid;
                     grid-template-columns:1fr;
                     gap:15px;
                     margin-bottom:30px;
                 ">
 
-                    <div style="
+                <div style="
                         background:#F9C74F;
                         border-radius:18px;
                         padding:20px;
                     ">
-                        <p style="
+                    <p style="
                             font-size:11px;
                             font-weight:800;
                             letter-spacing:1px;
                             margin-bottom:6px;
                         ">
-                            TANGGAL
-                        </p>
+                        TANGGAL
+                    </p>
 
-                        <p style="font-size:17px;font-weight:800;">
-                            📅 {{ \Carbon\Carbon::parse($activity->date)->format('d M Y') }}
-                        </p>
-                    </div>
+                    <p style="font-size:17px;font-weight:800;">
+                        📅 {{ \Carbon\Carbon::parse($activity->date)->format('d M Y') }}
+                    </p>
+                </div>
 
-                    <div style="
+                <div style="
                         background:#A9D6E5;
                         border-radius:18px;
                         padding:20px;
                     ">
-                        <p style="
+                    <p style="
                             font-size:11px;
                             font-weight:800;
                             letter-spacing:1px;
                             margin-bottom:6px;
                         ">
-                            LOKASI
-                        </p>
+                        LOKASI
+                    </p>
 
-                        <p style="font-size:17px;font-weight:800;">
-                            📍 {{ $activity->location }}
-                        </p>
-                    </div>
-
+                    <p style="font-size:17px;font-weight:800;">
+                        📍 {{ $activity->location }}
+                    </p>
                 </div>
 
-                <a href="/activities" class="btn" style="background:#252333;">
-                    ← Kembali ke Kegiatan
-                </a>
-
             </div>
 
-            {{-- POSTER / FOTO --}}
-            @if($activity->image)
-            <div class="activity-poster">
-                <img src="{{ asset('storage/' . $activity->image) }}" alt="{{ $activity->title }}">
-            </div>
-            @endif
+            <a href="/activities" class="btn" style="background:#252333;">
+                ← Kembali ke Kegiatan
+            </a>
 
-        </article>
+    </div>
+
+    {{-- POSTER / FOTO --}}
+    @if($activity->image)
+    <div class="activity-poster">
+        <img src="{{ asset('storage/' . $activity->image) }}" alt="{{ $activity->title }}">
+    </div>
+    @endif
+
+    </article>
 
     </div>
 </section>
