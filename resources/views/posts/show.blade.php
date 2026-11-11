@@ -33,6 +33,11 @@
         color: #6C4AB6;
         text-decoration: underline;
         overflow-wrap: anywhere;
+        font-weight: 600;
+    }
+
+    .news-detail-content a:hover {
+        color: #4b328b;
     }
 
     .news-detail-image {
