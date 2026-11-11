@@ -3,6 +3,30 @@
 @section('title', 'Pendaftaran Jalur Tes')
 
 @section('content')
+
+<style>
+    .ppdb-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: center;
+    }
+
+    @media (max-width: 600px) {
+        .ppdb-buttons {
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .ppdb-buttons .btn {
+            width: 100%;
+            margin-left: 0 !important;
+            text-align: center;
+            box-sizing: border-box;
+        }
+    }
+</style>
+
 <section class="section" style="background:#FFFDF5; min-height:70vh;">
     <div class="container">
 
@@ -98,13 +122,15 @@
                     <input type="file" name="document" accept=".pdf,application/pdf" required>
                 </div>
 
-                <button type="submit" class="btn">
-                    Kirim Pendaftaran
-                </button>
+                <div class="ppdb-buttons">
+                    <button type="submit" class="btn">
+                        Kirim Pendaftaran
+                    </button>
 
-                <a href="/pendaftaran-siswa" class="btn" style="margin-left:8px;">
-                    Kembali
-                </a>
+                    <a href="/pendaftaran-siswa" class="btn">
+                        Kembali
+                    </a>
+                </div>
 
             </form>
 

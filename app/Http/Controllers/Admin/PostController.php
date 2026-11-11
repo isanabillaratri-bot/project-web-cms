@@ -33,7 +33,7 @@ class PostController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'content' => 'required',
+            'content' => 'required|string|max:20000',
             'status' => 'required|in:draft,published',
             'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         ]);
@@ -79,7 +79,7 @@ class PostController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'content' => 'required',
+            'content' => 'required|string|max:20000',
             'status' => 'required|in:draft,published',
         ]);
 

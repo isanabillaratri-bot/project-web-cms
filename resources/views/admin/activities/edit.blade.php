@@ -59,8 +59,27 @@
 
                 <div style="margin-bottom:20px;">
                     <label>Deskripsi</label>
-                    <textarea name="description" rows="6" required style="width:100%; padding:10px; margin-top:8px;">{{ old('description', $activity->description) }}</textarea>
+
+                    <textarea id="description" name="description" rows="6" maxlength="20000" required style="width:100%; padding:10px; margin-top:8px;">{{ old('description', $activity->description) }}</textarea>
+
+                    <p style="font-size:12px; color:#6F6B7A; margin-top:6px;">
+                        Maksimal 20.000 karakter.
+                        <span id="description-counter">0 / 20.000</span>
+                    </p>
                 </div>
+
+                <script>
+                    const descriptionInput = document.getElementById('description');
+                    const descriptionCounter = document.getElementById('description-counter');
+
+                    function updateDescriptionCounter() {
+                        descriptionCounter.textContent =
+                            descriptionInput.value.length.toLocaleString('id-ID') + ' / 20.000';
+                    }
+
+                    descriptionInput.addEventListener('input', updateDescriptionCounter);
+                    updateDescriptionCounter();
+                </script>
 
                 <div style="margin-bottom:20px;">
                     <label>Tanggal</label>

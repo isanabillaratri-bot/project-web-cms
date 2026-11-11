@@ -24,7 +24,7 @@ class ActivityController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'description' => 'required',
+            'description' => 'required|string|max:20000',
             'date' => 'required|date',
             'location' => 'required',
             'status' => 'required|in:upcoming,completed',
@@ -59,7 +59,7 @@ class ActivityController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'description' => 'required',
+            'description' => 'required|string|max:20000',
             'date' => 'required|date',
             'location' => 'required',
             'status' => 'required|in:upcoming,completed',

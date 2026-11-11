@@ -4,6 +4,100 @@
 
 @section('content')
 
+<style>
+    .activity-card {
+        background: white;
+        border: 1px solid #eee8d9;
+        border-radius: 24px;
+        padding: 26px;
+        display: grid;
+        grid-template-columns: 100px 120px minmax(0, 1fr) auto;
+        align-items: center;
+        gap: 28px;
+        box-shadow: 0 8px 25px rgba(37, 35, 51, .05);
+    }
+
+    .activity-image {
+        width: 120px;
+        height: 120px;
+        border-radius: 18px;
+        overflow: hidden;
+    }
+
+    .activity-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .activity-info {
+        min-width: 0;
+        overflow-wrap: anywhere;
+    }
+
+    .activity-info h3 {
+        font-size: 24px;
+        line-height: 1.2;
+        margin-bottom: 8px;
+    }
+
+    .activity-button a {
+        display: inline-block;
+        background: #6C4AB6;
+        color: white;
+        padding: 12px 17px;
+        border-radius: 10px;
+        font-size: 13px;
+        font-weight: 800;
+        white-space: nowrap;
+    }
+
+    @media (max-width: 768px) {
+        .activity-card {
+            grid-template-columns: 90px minmax(0, 1fr);
+            gap: 16px;
+            padding: 18px;
+            border-radius: 20px;
+        }
+
+        .activity-date {
+            grid-column: 1;
+        }
+
+        .activity-image {
+            width: 100%;
+            max-width: 120px;
+            height: 100px;
+            grid-column: 2;
+        }
+
+        .activity-info {
+            grid-column: 1 / -1;
+            width: 100%;
+        }
+
+        .activity-info h3 {
+            font-size: 21px;
+        }
+
+        .activity-button {
+            grid-column: 1 / -1;
+        }
+
+        .activity-button a {
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 13px;
+        }
+
+        .activity-card.no-image .activity-date {
+            grid-column: 1 / -1;
+            max-width: 100px;
+        }
+    }
+</style>
+
 {{-- HEADER --}}
 <section style="
     background:#252333;
@@ -43,7 +137,6 @@
     </div>
 </section>
 
-
 {{-- DAFTAR KEGIATAN --}}
 <section class="section" style="background:#FFFDF5;">
     <div class="container">
@@ -58,20 +151,10 @@
 
             @foreach ($activities as $activity)
 
-            <article style="
-                background:white;
-                border:1px solid #eee8d9;
-                border-radius:24px;
-                padding:26px;
-                display:grid;
-                grid-template-columns:100px 120px 1fr auto;
-                align-items:center;
-                gap:28px;
-                box-shadow:0 8px 25px rgba(37,35,51,.05);
-            ">
+            <article class="activity-card {{ $activity->image ? 'has-image' : 'no-image' }}">
 
                 {{-- TANGGAL --}}
-                <div style="
+                <div class="activity-date" style="
                     background:#F9C74F;
                     border-radius:18px;
                     padding:18px 10px;
@@ -101,19 +184,13 @@
 
                 {{-- FOTO --}}
                 @if($activity->image)
-                <div style="
-                    width:120px;
-                    height:120px;
-                    border-radius:18px;
-                    overflow:hidden;
-                ">
-                    <img src="{{ asset('storage/' . $activity->image) }}" alt="{{ $activity->title }}" style="width:100%;height:100%;object-fit:cover;">
+                <div class="activity-image">
+                    <img src="{{ asset('storage/' . $activity->image) }}" alt="{{ $activity->title }}">
                 </div>
                 @endif
 
-
                 {{-- INFORMASI --}}
-                <div>
+                <div class="activity-info">
 
                     <p style="
                         color:#6C4AB6;
@@ -125,11 +202,7 @@
                         KEGIATAN SEKOLAH
                     </p>
 
-                    <h3 style="
-                        font-size:24px;
-                        line-height:1.2;
-                        margin-bottom:8px;
-                    ">
+                    <h3>
                         {{ $activity->title }}
                     </h3>
 
@@ -149,23 +222,11 @@
 
                 </div>
 
-
                 {{-- TOMBOL --}}
-                <div>
-
-                    <a href="/activities/{{ $activity->id }}" style="
-                        display:inline-block;
-                        background:#6C4AB6;
-                        color:white;
-                        padding:12px 17px;
-                        border-radius:10px;
-                        font-size:13px;
-                        font-weight:800;
-                        white-space:nowrap;
-                    ">
+                <div class="activity-button">
+                    <a href="/activities/{{ $activity->id }}">
                         Lihat detail →
                     </a>
-
                 </div>
 
             </article>

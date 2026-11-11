@@ -42,10 +42,31 @@
                     </p>
                 </div>
 
+
                 <div style="margin-bottom:20px;">
                     <label>Isi Berita</label>
-                    <textarea name="content" rows="8" required style="width:100%; padding:10px; margin-top:8px;">{{ old('content') }}</textarea>
+
+                    <textarea id="content" name="content" rows="8" maxlength="20000" required style="width:100%; padding:10px; margin-top:8px;">{{ old('content') }}</textarea>
+
+                    <p style="font-size:12px; color:#6F6B7A; margin-top:6px;">
+                        Maksimal 20.000 karakter.
+                        <span id="content-counter">0 / 20.000</span>
+                    </p>
                 </div>
+
+                <script>
+                    const contentInput = document.getElementById('content');
+                    const contentCounter = document.getElementById('content-counter');
+
+                    function updateContentCounter() {
+                        contentCounter.textContent =
+                            contentInput.value.length.toLocaleString('id-ID') + ' / 20.000';
+                    }
+
+                    contentInput.addEventListener('input', updateContentCounter);
+                    updateContentCounter();
+                </script>
+
 
                 <div style="margin-bottom:20px;">
                     <label>Status</label>
